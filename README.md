@@ -11,7 +11,7 @@ Registrar los datos siguientes datos del Usuario:
  - 
 ```
 
-![SOE UAGRM](https://i.kym-cdn.com/entries/icons/facebook/000/021/807/4d7.jpg) 
+ <p align="center"> <img src="https://i.kym-cdn.com/entries/icons/facebook/000/021/807/4d7.jpg" width="350"/> <img src="https://i.kym-cdn.com/entries/icons/facebook/000/021/807/4d7.jpg" width="350"/> </p> 
 
 ## Requerimientos de la App
 

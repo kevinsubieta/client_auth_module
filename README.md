@@ -3,13 +3,17 @@
 ## Registrar Usuario
 Registrar los datos siguientes datos del Usuario:
 ```
-
+ - NAME
+ - LAST NAME
+ - EMAIL
+ - PHONE NUMBER 
+ - 
 ```
 
 
 ## Requerimientos de la App
 
-* Password History 
+* ### Password History 
 ```
 	Recordar las ultimas N contraseñas para no volver a usarlas
 ```
@@ -92,5 +96,5 @@ DOCENTE:
 
 MSc. Carlos Daniel Sandoval
 
- <p align="center"> <img src="your_relative_path_here" width="350"/> <img src="https://www.google.com/imgres?imgurl=https%3A%2F%2Fwww.soe.uagrm.edu.bo%2Fwp-content%2Fuploads%2F2016%2F11%2Flogos.png&imgrefurl=https%3A%2F%2Fwww.soe.uagrm.edu.bo%2F&docid=x1YjFzoXIBP_RM&tbnid=tjfl9ktE-h7jmM%3A&vet=10ahUKEwis6uffkJvhAhWMxFkKHaWSCzoQMwg9KAAwAA..i&w=800&h=202&bih=657&biw=1396&q=soe%20uagrm&ved=0ahUKEwis6uffkJvhAhWMxFkKHaWSCzoQMwg9KAAwAA&iact=mrc&uact=8" width="350"/> </p> 
+![SOE UAGRM](https://www.google.com/imgres?imgurl=https%3A%2F%2Fwww.soe.uagrm.edu.bo%2Fwp-content%2Fuploads%2F2016%2F11%2Flogos.png&imgrefurl=https%3A%2F%2Fwww.soe.uagrm.edu.bo%2F&docid=x1YjFzoXIBP_RM&tbnid=tjfl9ktE-h7jmM%3A&vet=10ahUKEwis6uffkJvhAhWMxFkKHaWSCzoQMwg9KAAwAA..i&w=800&h=202&bih=657&biw=1396&q=soe%20uagrm&ved=0ahUKEwis6uffkJvhAhWMxFkKHaWSCzoQMwg9KAAwAA&iact=mrc&uact=8) 
 

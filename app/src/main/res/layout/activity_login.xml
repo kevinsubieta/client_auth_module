@@ -76,8 +76,7 @@
         android:layout_height="@dimen/activity_login_button_heigth"
         android:textColor="@android:color/white"
         android:background="@android:color/transparent"
-
-        android:text="@string/button_tittle"/>
+        android:text="@string/button_tittle_biometric"/>
 
         <ImageView
             android:id="@+id/ivKeyFinger"
@@ -86,6 +85,32 @@
             android:layout_margin="@dimen/default_items_margin_small"
             android:src="@drawable/ic_fingerprint_white"/>
     </RelativeLayout>
-    
+
+    <!--<RelativeLayout-->
+        <!--android:id="@+id/rlButtonRegister"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="@dimen/activity_login_button_heigth"-->
+        <!--style="@style/style_button_login"-->
+        <!--android:layout_marginTop="@dimen/default_items_margin"-->
+        <!--android:layout_below="@+id/rlButtonFinger">-->
+
+        <!--<Button-->
+            <!--android:id="@+id/btnLoginRegister"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="@dimen/activity_login_button_heigth"-->
+            <!--android:textColor="@android:color/white"-->
+            <!--android:background="@android:color/transparent"-->
+            <!--android:onClick="onClickLoginUserRegister"-->
+            <!--android:text="@string/button_tittle"/>-->
+
+        <!--<ImageView-->
+            <!--android:id="@+id/ivKeyLoginReg"-->
+            <!--android:layout_width="@dimen/activity_login_icon_width"-->
+            <!--android:layout_height="match_parent"-->
+            <!--android:layout_margin="@dimen/default_items_margin_small"-->
+            <!--android:src="@mipmap/ic_launcher"/>-->
+
+    <!--</RelativeLayout>-->
+
 
 </RelativeLayout>

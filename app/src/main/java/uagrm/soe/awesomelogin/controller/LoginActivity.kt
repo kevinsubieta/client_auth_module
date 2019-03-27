@@ -1,5 +1,6 @@
 package uagrm.soe.awesomelogin.controller
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import uagrm.soe.awesomelogin.R
@@ -20,4 +21,10 @@ class LoginActivity : AwesomeCompactActivity() {
     fun onClickLoginWithBiometric(view: View){
 
     }
+    fun onClickLoginUserRegister(view: View){
+        val intent = Intent(this, RegisterActivity::class.java)
+        // start your next activity
+        startActivity(intent)
+    }
+
 }

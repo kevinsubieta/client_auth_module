@@ -5,4 +5,6 @@
     <string name="textview_tittle_user"> Usuario </string>
     <string name="textview_tittle_password"> Contraseña </string>
     <string name="button_tittle"> INGRESAR </string>
+    <string name="button_tittle_biometric"> INGRESAR BIOMETRIC </string>
+    <string name="title_activity_register">RegisterActivity</string>
 </resources>

@@ -8,7 +8,9 @@ import android.annotation.TargetApi
 import android.content.Context
 import android.os.CancellationSignal
 
-
+/**
+ * Created by Kevin Subieta on 27/03/19.
+ */
 class BiometricManager: BiometricManagerV23 {
 
 

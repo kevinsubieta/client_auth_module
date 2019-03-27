@@ -1,5 +1,7 @@
 package uagrm.soe.awesomelogin.security
-
+/**
+ * Created by Kevin Subieta on 27/03/19.
+ */
 interface BiometricCallback {
 
     fun onSdkVersionNotSupported()

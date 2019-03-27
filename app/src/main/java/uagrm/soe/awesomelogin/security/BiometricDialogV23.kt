@@ -18,7 +18,9 @@ import android.widget.ImageView
 import android.widget.TextView
 import uagrm.soe.awesomelogin.R
 
-
+/**
+ * Created by Kevin Subieta on 27/03/19.
+ */
 class BiometricDialogV23 : BottomSheetDialog, View.OnClickListener {
 
     private var btnCancel: Button? = null

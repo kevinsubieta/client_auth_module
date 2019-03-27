@@ -10,7 +10,9 @@ import android.support.v4.app.ActivityCompat
 import android.support.v4.hardware.fingerprint.FingerprintManagerCompat
 import android.os.Build
 
-
+/**
+ * Created by Kevin Subieta on 27/03/19.
+ */
 @SuppressLint("MissingPermission")
 class BiometricUtils {
 

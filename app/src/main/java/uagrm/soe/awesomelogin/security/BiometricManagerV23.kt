@@ -24,7 +24,9 @@ import javax.crypto.SecretKey
 
 
 
-
+/**
+ * Created by Kevin Subieta on 27/03/19.
+ */
 @TargetApi(Build.VERSION_CODES.M)
 open class BiometricManagerV23 {
 

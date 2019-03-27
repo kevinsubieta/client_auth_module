@@ -5,7 +5,9 @@ import android.support.annotation.RequiresApi
 import android.hardware.biometrics.BiometricPrompt
 
 
-
+/**
+ * Created by Kevin Subieta on 27/03/19.
+ */
 @RequiresApi(api = Build.VERSION_CODES.P)
 class BiometricCallbackV28 : BiometricPrompt.AuthenticationCallback {
 

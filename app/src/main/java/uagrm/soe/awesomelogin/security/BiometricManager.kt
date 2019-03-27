@@ -8,7 +8,7 @@ import android.support.annotation.RequiresApi
 import uagrm.soe.awesomelogin.utils.MainThreadExecutor
 import java.util.concurrent.Executor
 
-abstract class BiometricManager {
+class BiometricManager {
 
 
     @RequiresApi(28)

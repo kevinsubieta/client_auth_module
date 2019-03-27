@@ -2,6 +2,7 @@
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_margin="@dimen/default_items_margin">
 
 
@@ -21,18 +22,39 @@
         android:layout_centerInParent="true">
 
         <EditText
+            android:id="@+id/userTxt"
             android:layout_width="match_parent"
             android:layout_height="@dimen/activity_login_edittext_heigth"
             android:hint="@string/textview_tittle_user"
             android:layout_marginTop="@dimen/default_items_margin"
             android:inputType="text"/>
 
-        <EditText
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/etPasswordLayout"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/activity_login_edittext_heigth"
-            android:hint="@string/textview_tittle_password"
-            android:layout_marginTop="@dimen/default_items_margin"
-            android:inputType="textPassword" />
+            android:layout_height="wrap_content"
+            app:passwordToggleEnabled="true"
+            android:layout_marginBottom="@dimen/activity_login_edittext_heigth">
+
+            <android.support.design.widget.TextInputEditText
+                android:id="@+id/passTxt"
+                android:maxLength="10"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/activity_login_edittext_heigth"
+                android:hint="@string/textview_tittle_password"
+                android:layout_marginTop="@dimen/default_items_margin"
+                android:inputType="textPassword"/>
+
+            <TextView
+                android:id="@+id/texto_contador"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignEnd="@+id/campo_mensaje"
+                android:layout_alignRight="@+id/campo_mensaje"
+                android:layout_below="@+id/campo_mensaje"
+                android:text="Small Text"
+                android:textAppearance="?android:attr/textAppearanceSmall" />
+        </android.support.design.widget.TextInputLayout>
 
     </LinearLayout>
     
@@ -49,6 +71,7 @@
             android:layout_width="match_parent"
             android:layout_height="@dimen/activity_login_button_heigth"
             android:textColor="@android:color/white"
+            android:onClick="onClickLoginUser"
             android:background="@android:color/transparent"
             android:text="@string/button_tittle"/>
 

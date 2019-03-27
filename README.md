@@ -33,10 +33,12 @@ Registrar los datos siguientes datos del Usuario:
 * ### 04.- Password complexity
 ```
 	La contraseña debe tener las siguientes caracteristicas:
-	- Una letra mayuscula
-	- Una letra miniscula
-	- Un caracter especial
 	- No puede contener el nombre del usuario
+	- Usa una combinación de caracteres alfanuméricos (letras y números) y símbolos:
+		- mayúsculas (A, E, R)
+		- minúsculas (a, e, r)
+		- números (2, 6, 7)
+		- símbolos y caracteres especiales (! @ & *)
 ```
 
 * ### 05.- Password expiration

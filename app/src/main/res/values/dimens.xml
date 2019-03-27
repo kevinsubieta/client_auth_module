@@ -14,6 +14,5 @@
 
     <dimen name="activity_login_icon_heigth">50dp</dimen>
     <dimen name="activity_login_icon_width">50dp</dimen>
-    <dimen name="fab_margin">16dp</dimen>
 
 </resources>

@@ -84,6 +84,10 @@ Registrar los datos siguientes datos del Usuario:
 	Enviar la solicitud de cambio al correo electronico del Usuario
 ```
 
+* ### 14.- User status
+```
+	Validar si esta habilitado un usuario para entrar al sistema
+```
 
 # Acknowledgment
 

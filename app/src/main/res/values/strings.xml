@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">AwesomeLogin</string>
+    <string name="textview_tittle_login"> LOGIN </string>
+
+    <string name="textview_tittle_user"> Usuario </string>
+    <string name="textview_tittle_password"> Contraseña </string>
+    <string name="button_tittle"> INGRESAR </string>
+</resources>

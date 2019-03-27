@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="@dimen/default_items_margin">
+
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/style_textview_tittle"
+        android:text="@string/textview_tittle_login"
+        android:layout_above="@+id/llLogin"/>
+
+    <LinearLayout
+        android:id="@+id/llLogin"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/activity_login_square_heigth"
+        android:orientation="vertical"
+        android:layout_centerInParent="true">
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/activity_login_edittext_heigth"
+            android:hint="@string/textview_tittle_user"
+            android:layout_marginTop="@dimen/default_items_margin"
+            android:inputType="text"/>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/activity_login_edittext_heigth"
+            android:hint="@string/textview_tittle_password"
+            android:layout_marginTop="@dimen/default_items_margin"
+            android:inputType="textPassword" />
+
+    </LinearLayout>
+    
+    
+    <RelativeLayout
+        android:id="@+id/rlButtonLogin"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/activity_login_button_heigth"
+        style="@style/style_button_login"
+        android:layout_below="@+id/llLogin">
+
+        <Button
+            android:id="@+id/btnLoginWithCredentials"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/activity_login_button_heigth"
+            android:textColor="@android:color/white"
+            android:background="@android:color/transparent"
+            android:text="@string/button_tittle"/>
+
+        <ImageView
+            android:id="@+id/ivKeyLogin"
+            android:layout_width="@dimen/activity_login_icon_width"
+            android:layout_height="match_parent"
+            android:layout_margin="@dimen/default_items_margin_small"
+            android:src="@drawable/ic_vpn_key_white"/>
+        
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:id="@+id/rlButtonFinger"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/activity_login_button_heigth"
+        style="@style/style_button_login_orange"
+        android:layout_marginTop="@dimen/default_items_margin"
+        android:layout_below="@+id/rlButtonLogin">
+    
+    <Button
+        android:id="@+id/btnLoginWithBiometric"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/activity_login_button_heigth"
+        android:textColor="@android:color/white"
+        android:background="@android:color/transparent"
+
+        android:text="@string/button_tittle"/>
+
+        <ImageView
+            android:id="@+id/ivKeyFinger"
+            android:layout_width="@dimen/activity_login_icon_width"
+            android:layout_height="match_parent"
+            android:layout_margin="@dimen/default_items_margin_small"
+            android:src="@drawable/ic_fingerprint_white"/>
+    </RelativeLayout>
+    
+
+</RelativeLayout>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="default_items_margin_mini">4dp</dimen>
+    <dimen name="default_items_margin_small">8dp</dimen>
+    <dimen name="default_items_margin">16dp</dimen>
+    <dimen name="default_items_margin_big">32dp</dimen>
+    <dimen name="default_items_padding">16dp</dimen>
+
+    <dimen name="toolbar_titlle_size_big">24dp</dimen>
+
+    <dimen name="activity_login_square_heigth">150dp</dimen>
+    <dimen name="activity_login_edittext_heigth">40dp</dimen>
+    <dimen name="activity_login_button_heigth">50dp</dimen>
+
+    <dimen name="activity_login_icon_heigth">50dp</dimen>
+    <dimen name="activity_login_icon_width">50dp</dimen>
+
+</resources>

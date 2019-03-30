@@ -9,6 +9,7 @@
     <dimen name="toolbar_titlle_size_big">24dp</dimen>
 
     <dimen name="activity_login_square_heigth">150dp</dimen>
+    <dimen name="activity_first_login_square_heigth">190dp</dimen>
     <dimen name="activity_login_edittext_heigth">40dp</dimen>
     <dimen name="activity_login_button_heigth">50dp</dimen>
 

@@ -3,12 +3,29 @@ package uagrm.soe.awesomelogin.logic
 import android.widget.EditText
 import dagger.Module
 import dagger.Provides
+import uagrm.soe.awesomelogin.domain.ResponseLogin
+import uagrm.soe.awesomelogin.listeners.ControllerListener
+import uagrm.soe.awesomelogin.listeners.OnCompleteRequest
 
 @Module
 class SecurityManager {
 
-    fun validateIfUserAuthSuccessful() : Boolean {
-        return true
+
+    fun validateIfUserAuthSuccessful(userName: String, password: String,
+                                     controllerListener: ControllerListener) {
+        var onCompleteRequest = object : OnCompleteRequest{
+            override fun onResponse(anyObject: Any) {
+                controllerListener.notifyController(anyObject, ResponseLogin())
+            }
+
+            override fun onFailure() {
+                controllerListener.notifyController(null,ResponseLogin())
+            }
+        }
+        var taskLoginUser = TaskLoginUser(onCompleteRequest)
+        taskLoginUser.userName = userName
+        taskLoginUser.password = password
+        taskLoginUser.execute()
     }
 
     fun validateMinLengthPassOffPass() : Boolean {

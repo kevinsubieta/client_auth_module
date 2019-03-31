@@ -11,6 +11,7 @@ import com.google.gson.GsonBuilder
 import com.google.gson.Gson
 import okhttp3.Credentials
 import okhttp3.Interceptor
+import uagrm.soe.awesomelogin.domain.ResponseLogin
 
 
 class WebService {
@@ -66,8 +67,15 @@ class WebService {
 
 
     @Throws(Throwable::class)
-    fun consumeGetLoginUserWithService(userName: String, password: String) {
-
+    fun consumePostLoginUserWithService(userName: String, password: String): ResponseLogin? {
+        var call = WebService.Holder.webInstance!!.consumePostLoginUserWithService(userName, password)
+        var response = this.prepareRequest(call)
+        var userFromService = response.body()
+        if (userFromService != null) {
+            return userFromService as ResponseLogin
+        } else {
+            return ResponseLogin()
+        }
     }
 
 

@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">AwesomeLogin</string>
+    <string name="app_name">Awesome_Login</string>
     <string name="textview_tittle_login"> LOGIN </string>
     <string name="textview_tittle_first_login"> 1era Autenticación </string>
 
@@ -29,5 +29,13 @@
     <string name="biometric_failure">Login incorrecto</string>
     <string name="biometric_cancelled">Autenticación cancelada por el usuario</string>
     <string name="biometric_success">Login correcto</string>
+
+
+<string-array name="standard">
+    <item>Standard 1</item>
+    <item>Standard 2</item>
+    <item>Standard 3</item>
+    <item>Standard 4</item>
+</string-array>
 
 </resources>

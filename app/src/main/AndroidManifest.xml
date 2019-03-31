@@ -8,6 +8,7 @@
         android:required="false"/>
 
     <uses-permission android:name="android.permission.USE_FINGERPRINT" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -15,10 +16,17 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".controller.MainActivity" />
+        <activity
+            android:label="Failed Login Maximum Number"
+            android:name=".controller.UpdateActivity"></activity>
+        <activity android:name=".controller.FailedLoginMaximumNumberActivity"></activity>
+        <activity
+            android:label="Auth Settings - Parametros"
+            android:name=".controller.ViewAllDataActivity"></activity>
         <activity android:name=".controller.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>

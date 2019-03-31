@@ -5,13 +5,21 @@ import java.io.Serializable
 
 class ResponseLogin: Serializable{
 
-    @SerializedName("is_first_login")
-    var is_first_login: Boolean? = true
+    @SerializedName("change_password")
+    var mustChangePassword: Boolean? = true
 
-    @SerializedName("error")
-    var error: String? = ""
+    @SerializedName("failed_login")
+    var failedLogin: Boolean? = false
+
+    @SerializedName("user_enabled")
+    var userEnabled: Boolean? = false
+
+    @SerializedName("is_admin")
+    var isAdmin: Boolean? = false
 
     @SerializedName("token")
     var token: String? = ""
 
+    @SerializedName("error")
+    var error: String? = ""
 }

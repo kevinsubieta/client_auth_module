@@ -12,4 +12,11 @@ interface WebServiceInterface {
     fun consumePostLoginUserWithService(@Query("username") userName : String,
                                         @Query("password") password : String): Call<ResponseLogin>
 
+
+    @POST("user/update/password")
+    fun consumePostChangePasswordService(@Query("username") userName : String,
+                                        @Query("old_password") oldPassword : String,
+                                        @Query("new_password") newPassword : String): Call<ResponseLogin>
+
+
 }

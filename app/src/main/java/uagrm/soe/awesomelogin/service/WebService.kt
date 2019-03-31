@@ -11,6 +11,7 @@ import com.google.gson.GsonBuilder
 import com.google.gson.Gson
 import okhttp3.Credentials
 import okhttp3.Interceptor
+import uagrm.soe.awesomelogin.domain.ResponseFirstLogin
 import uagrm.soe.awesomelogin.domain.ResponseLogin
 
 
@@ -68,7 +69,8 @@ class WebService {
 
     @Throws(Throwable::class)
     fun consumePostLoginUserWithService(userName: String, password: String): ResponseLogin? {
-        var call = WebService.Holder.webInstance!!.consumePostLoginUserWithService(userName, password)
+        var call = WebService.Holder.webInstance!!.
+                consumePostLoginUserWithService(userName, password)
         var response = this.prepareRequest(call)
         var userFromService = response.body()
         if (userFromService != null) {
@@ -79,6 +81,18 @@ class WebService {
     }
 
 
+    fun consumePostChangePasswordService(userName: String, oldPassword: String,
+                                         newPassword: String): ResponseFirstLogin {
+        var call = WebService.Holder.webInstance!!
+                .consumePostChangePasswordService(userName, oldPassword, newPassword)
+        var response = this.prepareRequest(call)
+        var userFromService = response.body()
+        if (userFromService != null) {
+            return userFromService as ResponseFirstLogin
+        } else {
+            return ResponseFirstLogin()
+        }
+    }
 
 
 }

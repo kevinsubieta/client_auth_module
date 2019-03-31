@@ -30,4 +30,11 @@
     <string name="biometric_cancelled">Autenticación cancelada por el usuario</string>
     <string name="biometric_success">Login correcto</string>
 
+    <string name="first_login_message_success"> Contraseña cargada correctamente </string>
+    <string name="first_login_message_error"> Error al cambiar contraseña, intentélo de nuevo... </string>
+
+    <string name="login_message_success"> Contraseña cargada correctamente </string>
+    <string name="login_message_error"> Error al logear el usuario </string>
+    <string name="login_message_error_user_not_Available"> El usuario está deshabilitado </string>
+
 </resources>

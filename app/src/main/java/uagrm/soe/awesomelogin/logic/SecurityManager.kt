@@ -1,8 +1,11 @@
 package uagrm.soe.awesomelogin.logic
 
+import android.content.Context
 import android.widget.EditText
 import dagger.Module
 import dagger.Provides
+import integgre.ma_volvo.business.patterns.builder.PreferencesBuilder
+import integgre.ma_volvo.constanst.ConstanstFiles
 import uagrm.soe.awesomelogin.domain.ResponseLogin
 import uagrm.soe.awesomelogin.listeners.ControllerListener
 import uagrm.soe.awesomelogin.listeners.OnCompleteRequest
@@ -11,7 +14,7 @@ import uagrm.soe.awesomelogin.listeners.OnCompleteRequest
 class SecurityManager {
 
 
-    fun validateIfUserAuthSuccessful(userName: String, password: String,
+    fun authenticateUserWithService(userName: String, password: String,
                                      controllerListener: ControllerListener) {
         var onCompleteRequest = object : OnCompleteRequest{
             override fun onResponse(anyObject: Any) {
@@ -28,20 +31,26 @@ class SecurityManager {
         taskLoginUser.execute()
     }
 
-    fun validateMinLengthPassOffPass() : Boolean {
-        return true
+
+    fun validateIfIsFirstStart(responseLogin: ResponseLogin) : Boolean {
+        return responseLogin.mustChangePassword!!
     }
 
-    fun validateNumberOfTryPass() : Boolean {
-        return true
+    fun validateIfUserIsAvaliable(responseLogin: ResponseLogin) : Boolean {
+        return responseLogin.userEnabled!!
     }
 
-    fun validateIfIsFirstStart() : Boolean {
-        return true
+    fun validateIfExistAnyError(responseLogin: ResponseLogin) : Boolean {
+          return responseLogin.error!!.isNotEmpty()
     }
 
-    fun validateIfUserIsAvaliable() : Boolean {
-        return true
+    fun validateIfUserAuthIsOk(responseLogin: ResponseLogin) : Boolean {
+        return !responseLogin.failedLogin!!
+    }
+
+    fun saveUserToken(context: Context,responseLogin: ResponseLogin){
+        PreferencesBuilder.build(context, ConstanstFiles.PREFERENCES_USER)
+                .putString(ConstanstFiles.USER_KEY_TOKEN, responseLogin.token!!)
     }
 
 

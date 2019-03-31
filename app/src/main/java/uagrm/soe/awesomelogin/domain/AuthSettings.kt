@@ -11,10 +11,10 @@ class AuthSettings : Serializable {
     @SerializedName("failed_login_maximum_number")
     var failedLoginMaximumNumber: Int? = 0
 
-    @SerializedName("password_expiration_time_days")
+    @SerializedName("password_expiration_epoch")
     var passwordExpirationTimeDays: Int? = 0
 
-    @SerializedName("session_expiration_time_min")
+    @SerializedName("session_expiration_epoch")
     var sessionExpirationTimeMin: Int? = 0
 
     @SerializedName("simultaneous_sessions_nro_allowed")

@@ -13,6 +13,7 @@ import butterknife.BindView
 import butterknife.ButterKnife
 import uagrm.soe.awesomelogin.R
 import uagrm.soe.awesomelogin.abstract.AwesomeCompactActivity
+import uagrm.soe.awesomelogin.domain.ResponseLogin
 import uagrm.soe.awesomelogin.listeners.ControllerListener
 import uagrm.soe.awesomelogin.logic.BiometricHandler
 import uagrm.soe.awesomelogin.logic.SecurityManager
@@ -22,10 +23,14 @@ import javax.inject.Inject
 class LoginActivity : AwesomeCompactActivity(), ControllerListener {
 
 
-    @BindView(R.id.userTxt) lateinit var userText: EditText
-    @BindView(R.id.passTxt) lateinit var passText: TextInputEditText
-    @Inject lateinit var biometricHanlder : BiometricHandler
-    @Inject lateinit var securityManager: SecurityManager
+    @BindView(R.id.userTxt)
+    lateinit var userText: EditText
+    @BindView(R.id.passTxt)
+    lateinit var passText: TextInputEditText
+    @Inject
+    lateinit var biometricHanlder: BiometricHandler
+    @Inject
+    lateinit var securityManager: SecurityManager
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -37,53 +42,55 @@ class LoginActivity : AwesomeCompactActivity(), ControllerListener {
     }
 
 
-
     fun onClickLoginUser(view: View) {
-        userText= findViewById(R.id.userTxt)
+        userText = findViewById(R.id.userTxt)
         passText = findViewById(R.id.passTxt)
 
         var userName = userText.text.toString()
         var userPassword = passText.text.toString()
-        this.securityManager.validateIfUserAuthSuccessful(userName,userPassword,this)
+        this.securityManager.authenticateUserWithService(userName, userPassword, this)
     }
 
 
-    fun validaUserLogin(){
-        if (securityManager.validateUserTextsIsEmpty(this.userText, this.passText)){
-           if (securityManager.validateIfIsFirstStart()){
-
-           }else{
-               /** Go To RestoreActivity **/
-           }
-        }
-
+    fun onClickLoginWithBiometric(view: View) {
+        BiometricManager.BiometricBuilder(MainActivity@ this)
+                .setTitle(getString(R.string.biometric_title))
+                .setSubtitle(getString(R.string.biometric_subtitle))
+                .setDescription(getString(R.string.biometric_description))
+                .setNegativeButtonText(getString(R.string.biometric_negative_button_text))
+                .build()
+                .authenticate(biometricHanlder)
     }
 
-
-    fun onClickLoginWithBiometric(view: View){
-        val intent=Intent(this,ViewAllDataActivity::class.java)
-        startActivity(intent)
-        /*
-        BiometricManager.BiometricBuilder(MainActivity@this)
-                        .setTitle(getString(R.string.biometric_title))
-                        .setSubtitle(getString(R.string.biometric_subtitle))
-                        .setDescription(getString(R.string.biometric_description))
-                        .setNegativeButtonText(getString(R.string.biometric_negative_button_text))
-                        .build()
-                        .authenticate(biometricHanlder)
-
-                        */
-    }
 
     override fun notifyController(anyObject: Any?, fromClass: Any) {
-        if (anyObject != null){
-            Toast.makeText(this,"Logeado",Toast.LENGTH_SHORT).show()
-        }else{
-            Toast.makeText(this,"Error",Toast.LENGTH_SHORT).show()
+        if (anyObject != null) {
+            var responseLogin: ResponseLogin = anyObject as ResponseLogin
+            if (securityManager.validateIfUserAuthIsOk(responseLogin)) {
+                if (securityManager.validateIfUserIsAvaliable(responseLogin)) {
+                    if (securityManager.validateIfIsFirstStart(responseLogin)) {
+                        var intent = Intent(this, LoginActivity::class.java)
+                        startActivity(intent)
+                    } else {
+                        if (securityManager.validateIfExistAnyError(responseLogin)) {
+                            securityManager.saveUserToken(this, responseLogin)
+                            var intent = Intent(this, MainActivity::class.java)
+                            startActivity(intent)
+                        } else {
+                            Toast.makeText(this, responseLogin.error!!, Toast.LENGTH_SHORT).show()
+                        }
+                    }
+                } else {
+                    Toast.makeText(this, resources.getString
+                    (R.string.login_message_error_user_not_Available), Toast.LENGTH_SHORT).show()
+                }
+            } else {
+                Toast.makeText(this, responseLogin.error!!, Toast.LENGTH_SHORT).show()
+            }
+        } else {
+            Toast.makeText(this, "Error", Toast.LENGTH_SHORT).show()
         }
     }
-
-
 
 
 }

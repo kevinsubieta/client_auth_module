@@ -3,8 +3,8 @@
     <string name="textview_tittle_login"> SECURITY LOGIN </string>
     <string name="textview_tittle_first_login"> 1era Autenticación </string>
 
-    <string name="textview_tittle_user"> User </string>
-    <string name="textview_tittle_password"> Password </string>
+    <string name="textview_tittle_user"> Usuario </string>
+    <string name="textview_tittle_password"> Contraseña </string>
 
     <string name="textview_tittle_old_password"> Actual Contraseña </string>
     <string name="textview_tittle_new_password"> Nueva Contraseña </string>
@@ -38,5 +38,12 @@
     <item>Standard 3</item>
     <item>Standard 4</item>
 </string-array>
+
+    <string name="first_login_message_success"> Contraseña cargada correctamente </string>
+    <string name="first_login_message_error"> Error al cambiar contraseña, intentélo de nuevo... </string>
+
+    <string name="login_message_success"> Contraseña cargada correctamente </string>
+    <string name="login_message_error"> Error al logear el usuario </string>
+    <string name="login_message_error_user_not_Available"> El usuario está deshabilitado </string>
 
 </resources>

@@ -36,6 +36,8 @@ class ViewAllDataActivity : AppCompatActivity() {
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.menu,menu)
         return super.onCreateOptionsMenu(menu)
+
+
     }
 
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
@@ -43,7 +45,7 @@ class ViewAllDataActivity : AppCompatActivity() {
         when(item!!.itemId){
             R.id.password_history->{
 
-                Toast.makeText(this,"#EstamosParaAyudate",Toast.LENGTH_LONG).show()
+                Toast.makeText(this,"#EstamosParaAyudarte",Toast.LENGTH_LONG).show()
                 /*
                 val intent=Intent(this,FailedLoginMaximumNumberActivity::class.java)
                 startActivity(intent)
@@ -125,4 +127,11 @@ class ViewAllDataActivity : AppCompatActivity() {
         private val STATUS="status"
     }
 
+    fun onClickUpdateAuthSettings(view: View) {
+
+        //passText = findViewById(R.id.passTxt)
+
+        //var userName = userText.text.toString()
+        Toast.makeText(this,"Primer SMS",Toast.LENGTH_LONG).show()
+    }
 }

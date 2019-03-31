@@ -11,4 +11,32 @@
         android:id="@+id/recycle_view"
         android:layout_height="match_parent"></android.support.v7.widget.RecyclerView>
 
+
+
+    <RelativeLayout
+        android:id="@+id/btn_update_authsettings"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/activity_login_button_heigth"
+        style="@style/style_button_login"
+        android:layout_below="@+id/llLogin">
+
+        <Button
+            android:id="@+id/btnLoginWithCredentials"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/activity_login_button_heigth"
+            android:textColor="@android:color/white"
+            android:onClick="onClickUpdateAuthSettings"
+            android:background="@android:color/transparent"
+            android:text="@string/button_tittle"/>
+
+        <ImageView
+            android:id="@+id/ivKeyLogin"
+            android:layout_width="@dimen/activity_login_icon_width"
+            android:layout_height="match_parent"
+            android:layout_margin="@dimen/default_items_margin_small"
+            android:src="@drawable/ic_vpn_key_white"/>
+
+    </RelativeLayout>
+
+
 </android.support.constraint.ConstraintLayout>

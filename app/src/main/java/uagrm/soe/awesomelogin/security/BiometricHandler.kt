@@ -1,6 +1,7 @@
 package uagrm.soe.awesomelogin.security
 
-import uagrm.soe.awesomelogin.security.biometric.BiometricCallback
+//import uagrm.soe.awesomelogin.security.biometric.BiometricCallback
+import uagrm.soe.awesomelogin.utils.security.BiometricCallback
 
 class BiometricManager : BiometricCallback {
 

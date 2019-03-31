@@ -13,14 +13,5 @@ class MainActivity : Activity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val recyclerView=findViewById<RecyclerView>(R.id.recycle_view) as RecyclerView
-
-        recyclerView.layoutManager= LinearLayoutManager(this, LinearLayout.VERTICAL,false)
-        val arrayList= ArrayList<String>()
-        //val animals: ArrayList<String> = ArrayList()    another types
-        val images= arrayOf(R.drawable.ic_launcher_background,R.drawable.ic_launcher_background,R.drawable.ic_launcher_background)
-        val fruite= arrayOf("Mango","Banana","Apple")
-
-        recyclerView.adapter=FruiteAdapter(this,images,fruite)
     }
 }

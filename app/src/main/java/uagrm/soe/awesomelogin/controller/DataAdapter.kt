@@ -33,13 +33,39 @@ class DataAdapter(val viewAllDataActivity: ViewAllDataActivity,val arrayList: Ar
         Log.d("Adapter init", arrayList.toString())
 
         holder.update.setOnClickListener {
-            val intent = Intent(viewAllDataActivity, UpdateFailedLoginMaximumNumberActivity::class.java)
-            intent.putExtra(ID, arrayList.get(position).get(ID))
-            intent.putExtra(NAME,arrayList.get(position).get(NAME))
-            intent.putExtra(DETAIL, arrayList.get(position).get(DETAIL))
-            intent.putExtra(REQUERIMENT,arrayList.get(position).get(REQUERIMENT))
-            intent.putExtra(STATUS, arrayList.get(position).get(STATUS))
-            viewAllDataActivity.startActivity(intent)
+
+            if (position == 0){
+                val intent = Intent(viewAllDataActivity, UpdateFailedLoginMaximumNumberActivity::class.java)
+                intent.putExtra(ID, arrayList.get(position).get(ID))
+                intent.putExtra(NAME,arrayList.get(position).get(NAME))
+                intent.putExtra(DETAIL, arrayList.get(position).get(DETAIL))
+                intent.putExtra(REQUERIMENT,arrayList.get(position).get(REQUERIMENT))
+                intent.putExtra(STATUS, arrayList.get(position).get(STATUS))
+                viewAllDataActivity.startActivity(intent)
+            }else{
+                if (position == 1){
+                    val intent = Intent(viewAllDataActivity, UpdatePasswordExpirationActivity::class.java)
+                    intent.putExtra(ID, arrayList.get(position).get(ID))
+                    intent.putExtra(NAME,arrayList.get(position).get(NAME))
+                    intent.putExtra(DETAIL, arrayList.get(position).get(DETAIL))
+                    intent.putExtra(REQUERIMENT,arrayList.get(position).get(REQUERIMENT))
+                    intent.putExtra(STATUS, arrayList.get(position).get(STATUS))
+                    viewAllDataActivity.startActivity(intent)
+                }else{
+                    if (position == 2){
+                        val intent = Intent(viewAllDataActivity, UpdateFailedLoginMaximumNumberActivity::class.java)
+                        intent.putExtra(ID, arrayList.get(position).get(ID))
+                        intent.putExtra(NAME,arrayList.get(position).get(NAME))
+                        intent.putExtra(DETAIL, arrayList.get(position).get(DETAIL))
+                        intent.putExtra(REQUERIMENT,arrayList.get(position).get(REQUERIMENT))
+                        intent.putExtra(STATUS, arrayList.get(position).get(STATUS))
+                        viewAllDataActivity.startActivity(intent)
+                    }else{
+                        Toast.makeText(viewAllDataActivity,"Epic Fail", Toast.LENGTH_LONG).show()
+                    }
+                }
+            }
+
         }
 
         holder.delete.setOnClickListener {

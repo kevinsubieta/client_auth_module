@@ -11,7 +11,7 @@ import java.util.*
 
 
 
-class UpdateFailedLoginMaximumNumberActivity : AppCompatActivity() {
+class UpdatePasswordExpirationActivity : AppCompatActivity() {
     lateinit var btn_update : Button
     lateinit var edit_cant_intentos : EditText
     lateinit var txt_name_req_one : TextView
@@ -29,7 +29,7 @@ class UpdateFailedLoginMaximumNumberActivity : AppCompatActivity() {
     @SuppressLint("ResourceType")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_update_failed_login_maximum_number)
+        setContentView(R.layout.activity_update_password_expiration)
         btn_update=findViewById(R.id.btn_update_req_one)
         edit_cant_intentos=findViewById(R.id.edit_cant_intentos_req_one)
 

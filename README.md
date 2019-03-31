@@ -25,7 +25,7 @@ Registrar los datos siguientes datos del Usuario:
 	Longitud minima de la contraseña
 ```
 
-* ### 03.- Password Number Try
+* ### 03.- Failed Login Maximum Number
 ```
 	Cantidad N de intentos fallidos de logueo
 ```

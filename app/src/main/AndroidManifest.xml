@@ -23,8 +23,8 @@
         <activity android:name=".controller.MainActivity" />
         <activity
             android:label="Failed Login Maximum Number"
-            android:name=".controller.UpdateActivity"></activity>
-        <activity android:name=".controller.FailedLoginMaximumNumberActivity"></activity>
+            android:name=".controller.UpdateFailedLoginMaximumNumberActivity"></activity>
+
         <activity
             android:label="Auth Settings - Parametros"
             android:name=".controller.ViewAllDataActivity"></activity>

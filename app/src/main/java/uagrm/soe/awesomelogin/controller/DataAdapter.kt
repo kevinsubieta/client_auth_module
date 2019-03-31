@@ -33,7 +33,7 @@ class DataAdapter(val viewAllDataActivity: ViewAllDataActivity,val arrayList: Ar
         Log.d("Adapter init", arrayList.toString())
 
         holder.update.setOnClickListener {
-            val intent = Intent(viewAllDataActivity, UpdateActivity::class.java)
+            val intent = Intent(viewAllDataActivity, UpdateFailedLoginMaximumNumberActivity::class.java)
             intent.putExtra(ID, arrayList.get(position).get(ID))
             intent.putExtra(NAME,arrayList.get(position).get(NAME))
             intent.putExtra(DETAIL, arrayList.get(position).get(DETAIL))

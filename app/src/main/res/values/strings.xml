@@ -1,6 +1,6 @@
 <resources>
-    <string name="app_name">AwesomeLogin</string>
-    <string name="textview_tittle_login"> LOGIN </string>
+    <string name="app_name">Segurity Login</string>
+    <string name="textview_tittle_login"> SECURITY LOGIN </string>
     <string name="textview_tittle_first_login"> 1era Autenticación </string>
 
     <string name="textview_tittle_user"> Usuario </string>
@@ -10,7 +10,8 @@
     <string name="textview_tittle_new_password"> Nueva Contraseña </string>
     <string name="textview_tittle_confirmpassword"> Confirmar Contraseña </string>
 
-    <string name="button_tittle"> INGRESAR </string>
+    <string name="button_tittle"> Login </string>
+    <string name="button_tittle_biometric"> Biometric Login </string>
 
     <string name="biometric_failed">Fingerprint not recognized</string>
 
@@ -29,6 +30,14 @@
     <string name="biometric_failure">Login incorrecto</string>
     <string name="biometric_cancelled">Autenticación cancelada por el usuario</string>
     <string name="biometric_success">Login correcto</string>
+
+
+<string-array name="standard">
+    <item>Standard 1</item>
+    <item>Standard 2</item>
+    <item>Standard 3</item>
+    <item>Standard 4</item>
+</string-array>
 
     <string name="first_login_message_success"> Contraseña cargada correctamente </string>
     <string name="first_login_message_error"> Error al cambiar contraseña, intentélo de nuevo... </string>

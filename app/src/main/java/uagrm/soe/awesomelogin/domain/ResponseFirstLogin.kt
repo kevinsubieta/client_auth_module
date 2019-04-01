@@ -5,8 +5,8 @@ import java.io.Serializable
 
 class ResponseFirstLogin: Serializable {
 
-    @SerializedName("response")
-    var response: String? = ""
+    @SerializedName("success")
+    var success: Boolean = false
 
     @SerializedName("error")
     var error: String? = ""

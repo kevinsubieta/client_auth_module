@@ -1,18 +1,18 @@
 package uagrm.soe.awesomelogin.controller
 
+import android.app.ProgressDialog
 import android.content.Intent
 import android.os.Bundle
 import android.support.design.widget.TextInputEditText
 import android.view.View
-import android.widget.EditText
 import android.widget.Toast
 import butterknife.BindView
 import butterknife.ButterKnife
+import integgre.ma_volvo.constanst.ConstanstFiles
 import uagrm.soe.awesomelogin.R
 import uagrm.soe.awesomelogin.abstract.AwesomeCompactActivity
 import uagrm.soe.awesomelogin.listeners.ControllerListener
-import uagrm.soe.awesomelogin.logic.ChangePassManager
-import uagrm.soe.awesomelogin.logic.SecurityManager
+import uagrm.soe.awesomelogin.logic.managers.ChangePassManager
 import javax.inject.Inject
 
 class FirstLoginActivity : AwesomeCompactActivity(), ControllerListener {
@@ -26,6 +26,8 @@ class FirstLoginActivity : AwesomeCompactActivity(), ControllerListener {
     lateinit var tiConfirmPassword: TextInputEditText
     @Inject
     lateinit var changePassManager: ChangePassManager
+    lateinit var userName: String
+    lateinit var progressDialog : ProgressDialog
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -33,6 +35,8 @@ class FirstLoginActivity : AwesomeCompactActivity(), ControllerListener {
         setContentView(R.layout.activity_first_login)
         ButterKnife.bind(this)
         initComponentes()
+        initProgressDialog()
+        this.userName = intent.getStringExtra(ConstanstFiles.KEY_FIRST_LOGIN_USER)
         changePassManager = ChangePassManager()
     }
 
@@ -43,17 +47,28 @@ class FirstLoginActivity : AwesomeCompactActivity(), ControllerListener {
         this.tiConfirmPassword = findViewById(R.id.tiConfirmPassword)
     }
 
+    fun initProgressDialog(){
+        this.progressDialog = ProgressDialog(this)
+        this.progressDialog.setMessage(resources.getString(R.string.dialog_change_pass_waiting))
+        this.progressDialog.setCancelable(false)
+    }
+
     fun onClickChangeCurrentPassword(view: View) {
         if (changePassManager.validateUserTextsIsEmpty(this.tiOldPassword, this.tiCurrentPassword,
                         this.tiConfirmPassword)) {
-            var userNameText = this.tiOldPassword.text.toString()
-            var oldPassText = this.tiCurrentPassword.text.toString()
-            var newPassText = this.tiCurrentPassword.text.toString()
-            changePassManager.changeUserPassword(userNameText, oldPassText, newPassText, this)
+            if (changePassManager.validateIfPasswordsAreEquals(this,
+                            this.tiCurrentPassword,this.tiConfirmPassword)){
+                var userNameText = this.tiOldPassword.text.toString()
+                var oldPassText = this.tiOldPassword.text.toString()
+                var newPassText = this.tiCurrentPassword.text.toString()
+                changePassManager.changeUserPassword(this.userName, oldPassText, newPassText, this)
+                progressDialog.show()
+            }
         }
     }
 
     override fun notifyController(anyObject: Any?, fromClass: Any) {
+        progressDialog.dismiss()
         if (anyObject != null) {
             Toast.makeText(this, resources.getString(R.string.first_login_message_success),
                     Toast.LENGTH_SHORT).show()

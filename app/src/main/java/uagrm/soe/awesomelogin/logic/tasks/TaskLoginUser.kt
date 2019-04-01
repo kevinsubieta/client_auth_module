@@ -1,4 +1,4 @@
-package uagrm.soe.awesomelogin.logic
+package uagrm.soe.awesomelogin.logic.tasks
 
 import android.os.AsyncTask
 import integgre.ma_volvo.api.service.WebService

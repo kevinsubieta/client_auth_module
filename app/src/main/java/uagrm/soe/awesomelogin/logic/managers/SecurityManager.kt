@@ -1,14 +1,14 @@
-package uagrm.soe.awesomelogin.logic
+package uagrm.soe.awesomelogin.logic.managers
 
 import android.content.Context
 import android.widget.EditText
 import dagger.Module
-import dagger.Provides
 import integgre.ma_volvo.business.patterns.builder.PreferencesBuilder
 import integgre.ma_volvo.constanst.ConstanstFiles
 import uagrm.soe.awesomelogin.domain.ResponseLogin
 import uagrm.soe.awesomelogin.listeners.ControllerListener
 import uagrm.soe.awesomelogin.listeners.OnCompleteRequest
+import uagrm.soe.awesomelogin.logic.tasks.TaskLoginUser
 
 @Module
 class SecurityManager {

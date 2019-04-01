@@ -6,20 +6,20 @@ import java.io.Serializable
 class ResponseLogin: Serializable{
 
     @SerializedName("change_password")
-    var mustChangePassword: Boolean? = true
+    var mustChangePassword: Boolean = true
 
     @SerializedName("failed_login")
-    var failedLogin: Boolean? = false
+    var failedLogin: Boolean = false
 
     @SerializedName("user_enabled")
-    var userEnabled: Boolean? = false
+    var userEnabled: Boolean = false
 
     @SerializedName("is_admin")
-    var isAdmin: Boolean? = false
+    var isAdmin: Boolean = false
 
     @SerializedName("token")
-    var token: String? = ""
+    var token: String = ""
 
     @SerializedName("error")
-    var error: String? = ""
+    var error: String = ""
 }

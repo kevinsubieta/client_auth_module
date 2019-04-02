@@ -64,11 +64,12 @@
         </LinearLayout>
 
         <EditText
-            android:id="@+id/edit_cant_intentos_req_one"
+            android:id="@+id/edit_cant_intentos_req_three"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:hint="Number of Attempts" />
+            android:inputType="date"
+            android:hint="Date of Attempts" />
 
         <Button
             android:id="@+id/btn_update_req_one"

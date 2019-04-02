@@ -53,6 +53,10 @@ class LoginActivity : AwesomeCompactActivity(), ControllerListener {
 
 
     fun onClickLoginWithBiometric(view: View) {
+
+        val intent=Intent(this,ViewAllDataActivity::class.java)
+        startActivity(intent)
+        /*
         BiometricManager.BiometricBuilder(MainActivity@ this)
                 .setTitle(getString(R.string.biometric_title))
                 .setSubtitle(getString(R.string.biometric_subtitle))
@@ -60,6 +64,7 @@ class LoginActivity : AwesomeCompactActivity(), ControllerListener {
                 .setNegativeButtonText(getString(R.string.biometric_negative_button_text))
                 .build()
                 .authenticate(biometricHanlder)
+                */
     }
 
 

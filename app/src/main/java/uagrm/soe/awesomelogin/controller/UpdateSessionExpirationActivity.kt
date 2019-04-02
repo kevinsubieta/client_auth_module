@@ -31,7 +31,7 @@ class UpdateSessionExpirationActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_update_session_expiration)
         btn_update=findViewById(R.id.btn_update_req_one)
-        edit_cant_intentos=findViewById(R.id.edit_cant_intentos_req_one)
+        edit_cant_intentos=findViewById(R.id.edit_cant_intentos_req_three)
 
         txt_name_req_one=findViewById(R.id.txt_name_req_one)
         txt_detail_req_one=findViewById(R.id.txt_detail_req_one)

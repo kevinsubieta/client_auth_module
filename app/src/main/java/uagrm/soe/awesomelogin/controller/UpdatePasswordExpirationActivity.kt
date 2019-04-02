@@ -13,7 +13,7 @@ import java.util.*
 
 class UpdatePasswordExpirationActivity : AppCompatActivity() {
     lateinit var btn_update : Button
-    lateinit var edit_cant_intentos : EditText
+    lateinit var calendar_cant_intentos : CalendarView
     lateinit var txt_name_req_one : TextView
     lateinit var txt_detail_req_one : TextView
 
@@ -31,7 +31,7 @@ class UpdatePasswordExpirationActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_update_password_expiration)
         btn_update=findViewById(R.id.btn_update_req_one)
-        edit_cant_intentos=findViewById(R.id.edit_cant_intentos_req_one)
+        calendar_cant_intentos=findViewById(R.id.calendarView_cant_intentos_req_two)
 
         txt_name_req_one=findViewById(R.id.txt_name_req_one)
         txt_detail_req_one=findViewById(R.id.txt_detail_req_one)
@@ -41,7 +41,7 @@ class UpdatePasswordExpirationActivity : AppCompatActivity() {
         id=intent.getStringExtra(ID)
         txt_name_req_one.setText(intent.getStringExtra(NAME).toString())
         txt_detail_req_one.setText(intent.getStringExtra(DETAIL).toString())
-        edit_cant_intentos.setText("0");
+//        edit_cant_intentos.setDate()
 
 
         btn_update.setOnClickListener {
@@ -51,8 +51,9 @@ class UpdatePasswordExpirationActivity : AppCompatActivity() {
 
     private fun UpdateData() {
         val sdf = SimpleDateFormat("dd/M/yyyy hh:mm:ss")
-        val currentDate = sdf.format(Date())
-
+      //  val currentDate = sdf.format(Date())
+        val currentDate = sdf.format(calendar_cant_intentos.getDate())
+//calendar_cant_intentos.getDate().toString()
         val user=User()
         user.id=Integer.parseInt(id)
         user.fname=fname
@@ -65,8 +66,8 @@ class UpdatePasswordExpirationActivity : AppCompatActivity() {
 
         when{
             result->{
-                Toast.makeText(this,"Data Updated Successfully..",Toast.LENGTH_LONG).show()
-                finish()
+                Toast.makeText(this,"Data Updated Successfully " + currentDate  ,Toast.LENGTH_LONG).show()
+               // finish()
             }
             else->Toast.makeText(this,"Failed to update data",Toast.LENGTH_LONG).show()
         }

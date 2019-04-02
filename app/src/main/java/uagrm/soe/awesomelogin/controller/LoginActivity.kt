@@ -36,10 +36,11 @@ class LoginActivity : AwesomeCompactActivity(), ControllerListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
-        ButterKnife.bind(this)
-        biometricHanlder = BiometricHandler(this)
         securityManager = SecurityManager()
+        biometricHanlder = BiometricHandler(this)
+        ButterKnife.bind(this)
         initProgressDialog()
+        validateIfExistAnySession()
     }
 
 
@@ -74,6 +75,15 @@ class LoginActivity : AwesomeCompactActivity(), ControllerListener {
                 .build()
                 .authenticate(biometricHanlder)
                 */
+    }
+
+
+    fun validateIfExistAnySession(){
+        var token = securityManager.getCurrentSession(this)
+        if (token.isNotEmpty()){
+            var intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
+        }
     }
 
 

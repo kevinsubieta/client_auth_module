@@ -31,6 +31,13 @@ class SecurityManager {
         taskLoginUser.execute()
     }
 
+    fun getCurrentSession(context: Context): String{
+        var token = PreferencesBuilder
+                .build(context,ConstanstFiles.PREFERENCES_USER)
+                .getString(ConstanstFiles.USER_KEY_TOKEN, "")
+        return token!!
+    }
+
 
     fun validateIfIsFirstStart(responseLogin: ResponseLogin) : Boolean {
         return responseLogin.mustChangePassword!!

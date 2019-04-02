@@ -1,9 +1,11 @@
-package uagrm.soe.awesomelogin.logic
+package uagrm.soe.awesomelogin.logic.managers
 
+import android.content.Context
 import android.widget.EditText
 import uagrm.soe.awesomelogin.domain.ResponseFirstLogin
 import uagrm.soe.awesomelogin.listeners.ControllerListener
 import uagrm.soe.awesomelogin.listeners.OnCompleteRequest
+import uagrm.soe.awesomelogin.logic.tasks.TaskChangePassword
 
 class ChangePassManager {
 
@@ -38,6 +40,16 @@ class ChangePassManager {
             return false
         }
         return  true
+    }
+
+
+    fun validateIfPasswordsAreEquals(context: Context,oldPassword:EditText, newPassword: EditText): Boolean {
+        if (!oldPassword.equals(newPassword)){
+            oldPassword.setError("Las contraseñas deben coincidir")
+            newPassword.setError("Las contraseñas deben coincidir")
+            return false
+        }
+        return true
     }
 
 }

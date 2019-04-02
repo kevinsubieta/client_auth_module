@@ -11,6 +11,7 @@ import com.google.gson.GsonBuilder
 import com.google.gson.Gson
 import okhttp3.Credentials
 import okhttp3.Interceptor
+import uagrm.soe.awesomelogin.domain.AuthSettings
 import uagrm.soe.awesomelogin.domain.ResponseFirstLogin
 import uagrm.soe.awesomelogin.domain.ResponseLogin
 
@@ -91,6 +92,19 @@ class WebService {
             return userFromService as ResponseFirstLogin
         } else {
             return ResponseFirstLogin()
+        }
+    }
+
+
+    fun consumePostGetAllParameters(token: String): AuthSettings {
+        var call = WebService.Holder.webInstance!!
+                .consumePostGetAllParameters(token)
+        var response = this.prepareRequest(call)
+        var authFromService = response.body()
+        if (authFromService != null) {
+            return authFromService as AuthSettings
+        } else {
+            return AuthSettings()
         }
     }
 

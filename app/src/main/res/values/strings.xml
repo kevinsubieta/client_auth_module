@@ -46,4 +46,7 @@
     <string name="login_message_error"> Error al logear el usuario </string>
     <string name="login_message_error_user_not_Available"> El usuario está deshabilitado </string>
 
+    <string name="dialog_logging_waiting"> Espere mientras logeamos al usuario </string>
+    <string name="dialog_change_pass_waiting"> Espere mientras cambiamos su contraseña</string>
+
 </resources>

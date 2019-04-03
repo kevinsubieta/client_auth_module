@@ -2,9 +2,11 @@ package uagrm.soe.awesomelogin.controller
 
 import uagrm.soe.awesomelogin.R
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.*
+import kotlinx.android.synthetic.main.activity_update_failed_login_maximum_number.*
 //import junit.runner.Version.id
 import java.text.SimpleDateFormat
 import java.util.*
@@ -44,43 +46,33 @@ class UpdateFailedLoginMaximumNumberActivity : AppCompatActivity() {
         id = intent.getStringExtra(ID)
         txt_name_req_one.setText(intent.getStringExtra(NAME).toString())
         txt_detail_req_one.setText(intent.getStringExtra(DETAIL).toString())
-        edit_cant_intentos.setText("0");
+        edit_cant_intentos.setText(intent.getStringExtra(REQUERIMENT).toString())
 
 
         btn_update.setOnClickListener {
-            UpdateData()
+            UpdateFailedLoginMaximumNumber()
         }
 
-        btn_add.setOnClickListener {
-            edit_cant_intentos.setText("1")
+        btn_update_req_one_add.setOnClickListener {
+            val cant = edit_cant_intentos.text.toString().toInt() + 1
+            edit_cant_intentos.setText(cant.toString())
         }
 
-        btn_not_add.setOnClickListener {
-            edit_cant_intentos.setText("99")
+        btn_update_req_one_not_add.setOnClickListener {
+            val cant = edit_cant_intentos.text.toString().toInt() - 1
+            edit_cant_intentos.setText(cant.toString())
         }
     }
 
-    private fun UpdateData() {
-        val sdf = SimpleDateFormat("dd/M/yyyy hh:mm:ss")
-        val currentDate = sdf.format(Date())
+    private fun UpdateFailedLoginMaximumNumber() {
+        val intent = Intent(this, ViewAllDataActivity::class.java)
+        intent.putExtra(ID, 1)
+        intent.putExtra(REQUERIMENT,edit_cant_intentos.text.toString())
+        intent.putExtra(STATUS, "ACTIVADO")
+        startActivity(intent)
 
-        val user = User()
-        user.id = Integer.parseInt(id)
-        user.fname = fname
-        user.lname = lname
-        user.gender = gender
-        user.standard = standard
-        user.record = currentDate
-
-        val result: Boolean = true// databaseHelper.updateUser(user)
-
-        when {
-            result -> {
-                Toast.makeText(this, "Data Updated Successfully..", Toast.LENGTH_LONG).show()
-                finish()
-            }
-            else -> Toast.makeText(this, "Failed to update data", Toast.LENGTH_LONG).show()
-        }
+        Toast.makeText(this, "Data Updated Successfully..", Toast.LENGTH_LONG).show()
+        finish()
 
     }
 

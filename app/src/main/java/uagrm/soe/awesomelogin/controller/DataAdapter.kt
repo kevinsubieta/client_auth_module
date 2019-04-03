@@ -13,7 +13,7 @@ import android.widget.Toast
 
 
 class DataAdapter(val viewAllDataActivity: ViewAllDataActivity,val arrayList: ArrayList<HashMap<String, String>>) : RecyclerView.Adapter<DataAdapter.ViewHolder>() {
-    lateinit var helper : DatabaseHelper
+    //lateinit var helper : DatabaseHelper
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val vi=LayoutInflater.from(viewAllDataActivity).inflate(R.layout.cust_layout,parent,false)
         return ViewHolder(vi)
@@ -29,7 +29,7 @@ class DataAdapter(val viewAllDataActivity: ViewAllDataActivity,val arrayList: Ar
         holder.detail.text=arrayList.get(position).get(DETAIL)
         holder.requeriment.text=arrayList.get(position).get(REQUERIMENT)
         holder.status.text=arrayList.get(position).get(STATUS)
-        helper= DatabaseHelper(viewAllDataActivity)
+       //helper= DatabaseHelper(viewAllDataActivity)
         Log.d("Adapter init", arrayList.toString())
 
         holder.update.setOnClickListener {
@@ -69,16 +69,16 @@ class DataAdapter(val viewAllDataActivity: ViewAllDataActivity,val arrayList: Ar
         }
 
         holder.delete.setOnClickListener {
-           val result : Boolean = helper.deleteUser(Integer.parseInt(arrayList.get(position).get(ID)))
+          //val result : Boolean = helper.deleteUser(Integer.parseInt(arrayList.get(position).get(ID)))
 
-            when{
-                result->{
+         //   when{
+          //      result->{
                     Toast.makeText(viewAllDataActivity,"Data deleted Successfully..", Toast.LENGTH_LONG).show()
                     val intent = Intent(viewAllDataActivity, ViewAllDataActivity::class.java)
                     viewAllDataActivity.startActivity(intent)
-                }
-                else-> Toast.makeText(viewAllDataActivity,"Failed to delete data", Toast.LENGTH_LONG).show()
-            }
+             //   }
+             //   else-> Toast.makeText(viewAllDataActivity,"Failed to delete data", Toast.LENGTH_LONG).show()
+           // }
 
         }
     }

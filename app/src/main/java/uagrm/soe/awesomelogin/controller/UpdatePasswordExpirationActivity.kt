@@ -30,7 +30,7 @@ class UpdatePasswordExpirationActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_update_password_expiration)
-        btn_update=findViewById(R.id.btn_update_req_one)
+        btn_update=findViewById(R.id.btn_update_req_two)
         calendar_cant_intentos=findViewById(R.id.calendarView_cant_intentos_req_two)
 
         txt_name_req_one=findViewById(R.id.txt_name_req_one)
@@ -41,15 +41,13 @@ class UpdatePasswordExpirationActivity : AppCompatActivity() {
         id=intent.getStringExtra(ID)
         txt_name_req_one.setText(intent.getStringExtra(NAME).toString())
         txt_detail_req_one.setText(intent.getStringExtra(DETAIL).toString())
-//        edit_cant_intentos.setDate()
-
 
         btn_update.setOnClickListener {
-            UpdateData()
+            UpdatePasswordExpiration()
         }
     }
 
-    private fun UpdateData() {
+    private fun UpdatePasswordExpiration() {
         val sdf = SimpleDateFormat("dd/M/yyyy hh:mm:ss")
       //  val currentDate = sdf.format(Date())
         val currentDate = sdf.format(calendar_cant_intentos.getDate())

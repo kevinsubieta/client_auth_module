@@ -5,6 +5,7 @@ import android.annotation.SuppressLint
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.*
+import kotlinx.android.synthetic.main.activity_update_failed_login_maximum_number.*
 //import junit.runner.Version.id
 import java.text.SimpleDateFormat
 import java.util.*
@@ -45,11 +46,14 @@ class UpdateSessionExpirationActivity : AppCompatActivity() {
 
 
         btn_update.setOnClickListener {
-            UpdateData()
+            UpdateSessionExpiration()
         }
+
+
     }
 
-    private fun UpdateData() {
+
+    private fun UpdateSessionExpiration() {
         val sdf = SimpleDateFormat("dd/M/yyyy hh:mm:ss")
         val currentDate = sdf.format(Date())
 

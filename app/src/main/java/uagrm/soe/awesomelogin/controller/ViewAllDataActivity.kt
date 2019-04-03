@@ -18,7 +18,7 @@ import kotlinx.android.synthetic.main.activity_login.*
 
 
 class ViewAllDataActivity : AppCompatActivity() {
-    lateinit var databaseHelper: DatabaseHelper
+  //  lateinit var databaseHelper: DatabaseHelper
     lateinit var recyclerView: RecyclerView
     lateinit var adapter: DataAdapter
 
@@ -28,9 +28,36 @@ class ViewAllDataActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_view_all_data)
-        recyclerView=findViewById(R.id.recycle_view)
+        recyclerView= this.findViewById(R.id.recycle_view)
         recyclerView.layoutManager= LinearLayoutManager(this, LinearLayout.VERTICAL,false)
-        databaseHelper= DatabaseHelper(this)
+
+        try {
+
+            var id = intent.getStringExtra(ViewAllDataActivity.ID).toString()
+            if (id == "1"){
+                val requisito_3: User = User()
+                requisito_3.fname = "03.- Failed Login Maximum Number"
+                requisito_3.gender = "Cantidad N de intentos fallidos de logueo"
+                requisito_3.standard = intent.getStringExtra(ViewAllDataActivity.REQUERIMENT).toString()
+                requisito_3.record = intent.getStringExtra(ViewAllDataActivity.STATUS).toString()
+
+                val requisito_5: User = User()
+                requisito_5.fname = "05.- Password expiration"
+                requisito_5.gender = "Tiempo N de duracion de la contraseña"
+                requisito_5.standard = "N = 3"
+                requisito_5.record = "DESACTIVADO"
+
+                val requisito_6: User = User()
+                requisito_6.fname = "06.- Session expiration"
+                requisito_6.gender = "Tiempo N de duracion de la session del usuario"
+                requisito_6.standard = "N =  1 mes"
+                requisito_6.record = "DESACTIVADO"
+
+                val list = listOf(requisito_3,requisito_5,requisito_6)
+            }
+        }catch (e: Exception){
+            ReadData()
+        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -55,19 +82,19 @@ class ViewAllDataActivity : AppCompatActivity() {
         }
         return super.onOptionsItemSelected(item)
     }
-
+/*
     override fun onResume() {
         ReadData()
         registerForContextMenu(recyclerView)
         super.onResume()
     }
-
+*/
     private fun ReadData() {
 
         val requisito_3: User = User()
         requisito_3.fname = "03.- Failed Login Maximum Number"
         requisito_3.gender = "Cantidad N de intentos fallidos de logueo"
-        requisito_3.standard = "N = 3"
+        requisito_3.standard = "3"
         requisito_3.record = "DESACTIVADO"
 
         val requisito_5: User = User()
@@ -84,9 +111,6 @@ class ViewAllDataActivity : AppCompatActivity() {
 
         val list = listOf(requisito_3,requisito_5,requisito_6)
 
-
-       // val list=databaseHelper.user
-
         hashMapArrayList.clear()
         if (list != null && list.size>0)
         {
@@ -102,9 +126,6 @@ class ViewAllDataActivity : AppCompatActivity() {
             }
             adapter = DataAdapter(this,hashMapArrayList)
             recyclerView.adapter=adapter
-            Log.d("array", hashMapArrayList.toString())
-            Toast.makeText(this,"Parametro registrado",Toast.LENGTH_LONG).show()
-
         }else{
             Toast.makeText(this,"Sin parametros",Toast.LENGTH_LONG).show()
         }

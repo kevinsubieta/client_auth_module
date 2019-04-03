@@ -20,7 +20,13 @@ interface WebServiceInterface {
                                         @Query("old_password") oldPassword : String,
                                         @Query("new_password") newPassword : String): Call<ResponseFirstLogin>
 
+
     @POST("auth_settings/get")
     fun consumePostGetAllParameters(@Query("token") token : String): Call<AuthSettings>
+
+
+    @POST("auth_settings/update")
+    fun consumePostSaveNewParameters(@Query("newParameters")
+                                     newParameters : AuthSettings): Call<ResponseFirstLogin>
 
 }

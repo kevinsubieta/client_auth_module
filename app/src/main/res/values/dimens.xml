@@ -12,6 +12,7 @@
     <dimen name="activity_first_login_square_heigth">190dp</dimen>
     <dimen name="activity_login_edittext_heigth">40dp</dimen>
     <dimen name="activity_login_button_heigth">50dp</dimen>
+    <dimen name="activity_auth_cards_heigth">190dp</dimen>
 
     <dimen name="activity_login_icon_heigth">50dp</dimen>
     <dimen name="activity_login_icon_width">50dp</dimen>
@@ -34,7 +35,7 @@
     <dimen name="font_title">18sp</dimen>
     <dimen name="font_subtitle">13sp</dimen>
 
-
+    <dimen name="fab_botton_size">123dp</dimen>
     <dimen name="biometric_bg_size">20dp</dimen>
     <dimen name="biometric_logo_size">48dp</dimen>
     <dimen name="biometric_bottom_sheet_padding">16dp</dimen>

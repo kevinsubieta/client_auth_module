@@ -40,7 +40,7 @@ class LoginActivity : AwesomeCompactActivity(), ControllerListener {
         biometricHanlder = BiometricHandler(this)
         ButterKnife.bind(this)
         initProgressDialog()
-        validateIfExistAnySession()
+        //validateIfExistAnySession()
     }
 
 
@@ -50,12 +50,12 @@ class LoginActivity : AwesomeCompactActivity(), ControllerListener {
 
         var userName = userText.text.toString()
         var userPassword = passText.text.toString()
-        this.securityManager.authenticateUserWithService(userName,userPassword, this)
+        this.securityManager.authenticateUserWithService(userName, userPassword, this)
         progressDialog.show()
     }
 
 
-    fun initProgressDialog(){
+    fun initProgressDialog() {
         this.progressDialog = ProgressDialog(this)
         this.progressDialog.setMessage(resources.getString(R.string.dialog_logging_waiting))
         this.progressDialog.setCancelable(false)
@@ -64,7 +64,7 @@ class LoginActivity : AwesomeCompactActivity(), ControllerListener {
 
     fun onClickLoginWithBiometric(view: View) {
 
-        val intent=Intent(this,ViewAllDataActivity::class.java)
+        val intent = Intent(this, ViewAllDataActivity::class.java)
         startActivity(intent)
         /*
         BiometricManager.BiometricBuilder(MainActivity@ this)
@@ -74,13 +74,13 @@ class LoginActivity : AwesomeCompactActivity(), ControllerListener {
                 .setNegativeButtonText(getString(R.string.biometric_negative_button_text))
                 .build()
                 .authenticate(biometricHanlder)
-                */
+        */
     }
 
 
-    fun validateIfExistAnySession(){
+    fun validateIfExistAnySession() {
         var token = securityManager.getCurrentSession(this)
-        if (token.isNotEmpty()){
+        if (token.isNotEmpty()) {
             var intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
         }
@@ -95,7 +95,7 @@ class LoginActivity : AwesomeCompactActivity(), ControllerListener {
                 if (securityManager.validateIfUserIsAvaliable(responseLogin)) {
                     if (securityManager.validateIfIsFirstStart(responseLogin)) {
                         var intent = Intent(this, FirstLoginActivity::class.java)
-                        intent.putExtra(ConstanstFiles.KEY_FIRST_LOGIN_USER,userText.text.toString())
+                        intent.putExtra(ConstanstFiles.KEY_FIRST_LOGIN_USER, userText.text.toString())
                         startActivity(intent)
                     } else {
                         if (securityManager.validateIfExistAnyError(responseLogin)) {

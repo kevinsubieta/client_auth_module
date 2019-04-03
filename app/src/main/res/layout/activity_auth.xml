@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    android:id="@+id/rlAuth"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="@dimen/default_items_margin">
+
+    <android.support.v4.widget.SwipeRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/srlPrincipal"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <include layout="@layout/view_param_one"></include>
+
+            <include layout="@layout/view_param_two"></include>
+
+            <include layout="@layout/view_param_three"></include>
+
+            <include layout="@layout/view_param_five"></include>
+
+            <include layout="@layout/view_param_six"></include>
+
+            <include layout="@layout/view_param_seven"></include>
+
+        </LinearLayout>
+    </android.support.v4.widget.SwipeRefreshLayout>
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fabSaveParams"
+        android:layout_width="@dimen/fab_botton_size"
+        android:layout_height="@dimen/fab_botton_size"
+        app:fabSize="normal"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:src="@drawable/ic_save_white"
+        android:onClick="onClickSaveNewAuthParams"
+        android:layout_margin="@dimen/default_items_margin_small"/>
+
+</RelativeLayout>

@@ -48,5 +48,34 @@
 
     <string name="dialog_logging_waiting"> Espere mientras logeamos al usuario </string>
     <string name="dialog_change_pass_waiting"> Espere mientras cambiamos su contraseña</string>
+    <string name="dialog_auth_downloading"> Espere mientras cargarmos los parámetros </string>
+    <string name="dialog_auth_saving"> Espere mientras guardamos los parámetros</string>
+
+    <string name="auth_tittle_error"> Error al guardar los parámetros, por favor inténtelo más tarde</string>
+    <string name="auth_tittle_ok"> Parámetros actualizados correctamente</string>
+
+    <string name="param_tittle_one"> Número máximo de intentos </string>
+    <string name="param_tittle_one_description"> Por favor escriba el número de intentos </string>
+
+    <string name="param_tittle_two"> Tiempo de expiración de la contraseña </string>
+    <string name="param_tittle_two_description"> Por favor escriba el tiempo de validez de su contraseña </string>
+
+    <string name="param_tittle_three"> Tiempo de expiración de la sesión (Minutos) </string>
+    <string name="param_tittle_three_description"> Por favor escriba el tiempo de duración de las sesiones </string>
+
+    <string name="param_tittle_four"> Nro. de sesiones simultáneas </string>
+
+
+    <string name="param_tittle_five"> Mínimo número de caracteres especiales</string>
+    <string name="param_tittle_five_description"> Por favor escriba el número mínimo de caracteres especiales para la contraseña</string>
+
+
+    <string name="param_tittle_six"> Mínimo número de  letras mayúsculas</string>
+    <string name="param_tittle_six_description"> Por favor escriba el número mínimo de letras mayúsculas para la contraseña</string>
+
+
+    <string name="param_tittle_seven"> Longitud para la contraseña </string>
+    <string name="param_tittle_seven_description"> Por favor escriba la máxima longitud de la contraseña</string>
+
 
 </resources>

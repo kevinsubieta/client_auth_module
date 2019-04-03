@@ -11,6 +11,7 @@ import butterknife.ButterKnife
 import integgre.ma_volvo.constanst.ConstanstFiles
 import uagrm.soe.awesomelogin.R
 import uagrm.soe.awesomelogin.abstract.AwesomeCompactActivity
+import uagrm.soe.awesomelogin.domain.ResponseFirstLogin
 import uagrm.soe.awesomelogin.listeners.ControllerListener
 import uagrm.soe.awesomelogin.logic.managers.ChangePassManager
 import javax.inject.Inject
@@ -27,7 +28,7 @@ class FirstLoginActivity : AwesomeCompactActivity(), ControllerListener {
     @Inject
     lateinit var changePassManager: ChangePassManager
     lateinit var userName: String
-    lateinit var progressDialog : ProgressDialog
+    lateinit var progressDialog: ProgressDialog
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -47,7 +48,7 @@ class FirstLoginActivity : AwesomeCompactActivity(), ControllerListener {
         this.tiConfirmPassword = findViewById(R.id.tiConfirmPassword)
     }
 
-    fun initProgressDialog(){
+    fun initProgressDialog() {
         this.progressDialog = ProgressDialog(this)
         this.progressDialog.setMessage(resources.getString(R.string.dialog_change_pass_waiting))
         this.progressDialog.setCancelable(false)
@@ -57,7 +58,7 @@ class FirstLoginActivity : AwesomeCompactActivity(), ControllerListener {
         if (changePassManager.validateUserTextsIsEmpty(this.tiOldPassword, this.tiCurrentPassword,
                         this.tiConfirmPassword)) {
             if (changePassManager.validateIfPasswordsAreEquals(this,
-                            this.tiCurrentPassword,this.tiConfirmPassword)){
+                            this.tiCurrentPassword, this.tiConfirmPassword)) {
                 var userNameText = this.tiOldPassword.text.toString()
                 var oldPassText = this.tiOldPassword.text.toString()
                 var newPassText = this.tiCurrentPassword.text.toString()
@@ -70,11 +71,17 @@ class FirstLoginActivity : AwesomeCompactActivity(), ControllerListener {
     override fun notifyController(anyObject: Any?, fromClass: Any) {
         progressDialog.dismiss()
         if (anyObject != null) {
-            Toast.makeText(this, resources.getString(R.string.first_login_message_success),
-                    Toast.LENGTH_SHORT).show()
-            var intent = Intent(this, LoginActivity::class.java)
-            startActivity(intent)
-            this.finish()
+            var responseFromFirstLogin: ResponseFirstLogin = anyObject as ResponseFirstLogin
+            if (responseFromFirstLogin.error!!.isEmpty()) {
+                Toast.makeText(this, resources.getString(R.string.first_login_message_success),
+                        Toast.LENGTH_SHORT).show()
+                var intent = Intent(this, LoginActivity::class.java)
+                startActivity(intent)
+                this.finish()
+            } else {
+                Toast.makeText(this, responseFromFirstLogin.error!!,
+                        Toast.LENGTH_SHORT).show()
+            }
         } else {
             Toast.makeText(this, resources.getString(R.string.first_login_message_error),
                     Toast.LENGTH_SHORT).show()

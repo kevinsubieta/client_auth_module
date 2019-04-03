@@ -44,7 +44,7 @@ class ChangePassManager {
 
 
     fun validateIfPasswordsAreEquals(context: Context,oldPassword:EditText, newPassword: EditText): Boolean {
-        if (!oldPassword.equals(newPassword)){
+        if (!oldPassword.text.toString().equals(newPassword.text.toString())){
             oldPassword.setError("Las contraseñas deben coincidir")
             newPassword.setError("Las contraseñas deben coincidir")
             return false

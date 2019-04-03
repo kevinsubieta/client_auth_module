@@ -108,5 +108,17 @@ class WebService {
         }
     }
 
+    fun consumePostSaveNewParameters(authSettings: AuthSettings): AuthSettings {
+        var call = WebService.Holder.webInstance!!
+                .consumePostSaveNewParameters(authSettings)
+        var response = this.prepareRequest(call)
+        var authFromService = response.body()
+        if (authFromService != null) {
+            return authFromService as AuthSettings
+        } else {
+            return AuthSettings()
+        }
+    }
+
 
 }

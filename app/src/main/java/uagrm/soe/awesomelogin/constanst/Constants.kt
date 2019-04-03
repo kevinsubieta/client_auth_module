@@ -3,7 +3,7 @@ package integgre.ma_volvo.constanst
 class Constants {
 
     companion object {
-        val WEB_URI = "http://192.168.1.104:8080/"
+        val WEB_URI = "http://192.168.43.82:8080/"
         val WEB_URI_TEST = "http://newapiclubvolvo.azurewebsites.net/api/"
         val RESOURCES_URI = "http://apiclubvolvo.azurewebsites.net/"
 

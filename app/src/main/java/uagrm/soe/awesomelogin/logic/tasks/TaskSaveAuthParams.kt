@@ -2,17 +2,16 @@ package uagrm.soe.awesomelogin.logic.tasks
 
 import android.os.AsyncTask
 import integgre.ma_volvo.api.service.WebService
+import uagrm.soe.awesomelogin.domain.AuthSettings
 import uagrm.soe.awesomelogin.domain.ResponseFirstLogin
-import uagrm.soe.awesomelogin.domain.ResponseLogin
 import uagrm.soe.awesomelogin.listeners.OnCompleteRequest
 import kotlin.properties.Delegates
 
-class TaskChangePassword (onCompleteRequest: OnCompleteRequest) : AsyncTask<Any, Any, Any>() {
+class TaskSaveAuthParams (onCompleteRequest: OnCompleteRequest) : AsyncTask<Any, Any, Any>() {
 
     var onCompleteRequest: OnCompleteRequest by Delegates.notNull()
-    lateinit var userName: String
-    lateinit var oldPassword: String
-    lateinit var newPassword: String
+    lateinit var token: String
+    lateinit var newParametersToSave : AuthSettings
 
     init {
         this.onCompleteRequest = onCompleteRequest
@@ -20,14 +19,15 @@ class TaskChangePassword (onCompleteRequest: OnCompleteRequest) : AsyncTask<Any,
 
     override fun doInBackground(vararg p0: Any?): Any? {
         try {
-            var userFromService = WebService().
-                    consumePostChangePasswordService(this.userName, this.oldPassword, this.newPassword)
-            if (userFromService != null) {
-                return userFromService
+            var responseFromService = WebService().
+                    consumePostSaveNewParameters(newParametersToSave)
+            if (responseFromService != null) {
+                return responseFromService
             }
         } catch (throwable: Throwable) {
             return null
         }
+
         return null
     }
 

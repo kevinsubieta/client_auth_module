@@ -20,21 +20,8 @@
         android:networkSecurityConfig="@xml/network_security_config"
         android:theme="@style/AppTheme">
         <activity android:name=".controller.MainActivity" />
-        <activity
-            android:label="Failed Login Maximum Number"
-            android:name=".controller.UpdateFailedLoginMaximumNumberActivity"></activity>
 
-        <activity
-            android:label="Password Expiration"
-            android:name=".controller.UpdatePasswordExpirationActivity"></activity>
 
-        <activity
-            android:label="Session Expiration"
-            android:name=".controller.UpdateSessionExpirationActivity"></activity>
-
-        <activity
-            android:label="Auth Settings - Parametros"
-            android:name=".controller.ViewAllDataActivity"></activity>
         <activity android:name=".controller.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -43,6 +30,9 @@
         </activity>
 
         <activity android:name=".controller.FirstLoginActivity">
+        </activity>
+
+        <activity android:name=".controller.AuthActivity">
         </activity>
 
     </application>

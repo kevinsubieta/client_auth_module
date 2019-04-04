@@ -21,5 +21,5 @@ class ResponseLogin: Serializable{
     var token: String = ""
 
     @SerializedName("error")
-    var error: String = ""
+    var error: String? = ""
 }

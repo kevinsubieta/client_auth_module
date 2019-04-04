@@ -108,15 +108,17 @@ class WebService {
         }
     }
 
-    fun consumePostSaveNewParameters(authSettings: AuthSettings): AuthSettings {
+    fun consumePostSaveNewParameters(authSettings: AuthSettings, token: String): ResponseFirstLogin {
+        var jsonString = Gson().toJson(authSettings)
+
         var call = WebService.Holder.webInstance!!
-                .consumePostSaveNewParameters(authSettings)
+                .consumePostSaveNewParameters(jsonString, token)
         var response = this.prepareRequest(call)
         var authFromService = response.body()
         if (authFromService != null) {
-            return authFromService as AuthSettings
+            return authFromService as ResponseFirstLogin
         } else {
-            return AuthSettings()
+            return ResponseFirstLogin()
         }
     }
 

@@ -48,6 +48,7 @@ class SecurityManager {
     }
 
     fun validateIfExistAnyError(responseLogin: ResponseLogin) : Boolean {
+        if (responseLogin.error == null){return true}
           return responseLogin.error!!.isNotEmpty()
     }
 

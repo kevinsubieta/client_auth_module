@@ -35,7 +35,7 @@
     <dimen name="font_title">18sp</dimen>
     <dimen name="font_subtitle">13sp</dimen>
 
-    <dimen name="fab_botton_size">123dp</dimen>
+    <dimen name="fab_botton_size">32dp</dimen>
     <dimen name="biometric_bg_size">20dp</dimen>
     <dimen name="biometric_logo_size">48dp</dimen>
     <dimen name="biometric_bottom_sheet_padding">16dp</dimen>

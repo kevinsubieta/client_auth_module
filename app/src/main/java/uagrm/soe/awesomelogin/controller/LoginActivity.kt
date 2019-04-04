@@ -103,9 +103,11 @@ class LoginActivity : AwesomeCompactActivity(), ControllerListener {
                             var intent = Intent()
                             if (securityManager.validateIfUserIsAdmin(responseLogin)){
                                 intent = Intent(this, AuthActivity::class.java)
+                                finish()
 
                             }else{
                                 intent = Intent(this, MainActivity::class.java)
+                                finish()
                             }
                             startActivity(intent)
                         } else {

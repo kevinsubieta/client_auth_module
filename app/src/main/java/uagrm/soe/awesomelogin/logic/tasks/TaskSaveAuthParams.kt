@@ -20,7 +20,7 @@ class TaskSaveAuthParams (onCompleteRequest: OnCompleteRequest) : AsyncTask<Any,
     override fun doInBackground(vararg p0: Any?): Any? {
         try {
             var responseFromService = WebService().
-                    consumePostSaveNewParameters(newParametersToSave)
+                    consumePostSaveNewParameters(newParametersToSave, token)
             if (responseFromService != null) {
                 return responseFromService
             }

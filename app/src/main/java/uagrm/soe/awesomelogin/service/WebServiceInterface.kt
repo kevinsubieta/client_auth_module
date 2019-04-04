@@ -26,7 +26,7 @@ interface WebServiceInterface {
 
 
     @POST("auth_settings/update")
-    fun consumePostSaveNewParameters(@Query("newParameters")
-                                     newParameters : AuthSettings): Call<ResponseFirstLogin>
+    fun consumePostSaveNewParameters(@Query("auth_settings") newParameters : String,
+                                     @Query("token") token: String): Call<ResponseFirstLogin>
 
 }

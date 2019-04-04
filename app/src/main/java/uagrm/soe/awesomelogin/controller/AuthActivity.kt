@@ -1,10 +1,13 @@
 package uagrm.soe.awesomelogin.controller
 
 import android.app.ProgressDialog
+import android.content.Intent
 import android.os.Bundle
 import android.support.design.widget.FloatingActionButton
 import android.support.v4.widget.SwipeRefreshLayout
 import android.support.v7.widget.RecyclerView
+import android.view.Menu
+import android.view.MenuItem
 import android.view.View
 import android.widget.*
 import uagrm.soe.awesomelogin.R
@@ -30,7 +33,7 @@ class AuthActivity : AwesomeCompactActivity() {
     lateinit var currentAuthParametes: AuthSettings
     lateinit var srlPrincipal: SwipeRefreshLayout
     lateinit var fabSaveParams: FloatingActionButton
-    lateinit var rlAuth: RelativeLayout
+    // lateinit var rlAuth: RelativeLayout
 
     var authManager: AuthManager = AuthManager()
 
@@ -57,12 +60,13 @@ class AuthActivity : AwesomeCompactActivity() {
         this.etLengthPassword = findViewById(R.id.etLengthPassword)
         this.spExpSessionUnitTime = findViewById(R.id.spExpSessionUnitTime)
         this.spDaysExpPassUnitTime = findViewById(R.id.spDaysExpPassUnitTime)
-        this.srlPrincipal = findViewById(R.id.srlPrincipal)
+        // this.srlPrincipal = findViewById(R.id.srlPrincipal)
         this.fabSaveParams = findViewById(R.id.fabSaveParams)
-        this.rlAuth = findViewById(R.id.rlAuth)
+        // this.rlAuth = findViewById(R.id.rlAuth)
     }
 
     fun initSwipeRefreshLayout() {
+        /*
         srlPrincipal!!.setColorSchemeColors(resources.getColor(R.color.colorPrimary))
         srlPrincipal!!.isEnabled = false
         srlPrincipal!!.isRefreshing = true
@@ -70,6 +74,29 @@ class AuthActivity : AwesomeCompactActivity() {
         srlPrincipal!!.setOnRefreshListener {
             this.loadParametersFromService()
         }
+        */
+    }
+
+
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        getMenuInflater().inflate(R.menu.menu, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem?): Boolean {
+        if (item!!.itemId == R.id.password_history) {
+            authManager.logOut(this)
+            var intent = Intent(this,LoginActivity::class.java)
+            startActivity(intent)
+            finish()
+            return true
+        } else {
+            return super.onOptionsItemSelected(item)
+        }
+    }
+
+    fun initToolbarComponents() {
+
     }
 
     fun initProgressDialog() {
@@ -108,7 +135,7 @@ class AuthActivity : AwesomeCompactActivity() {
                     }
                 }
 
-        this.spExpSessionUnitTime.setSelection(1)
+        this.spExpSessionUnitTime.setSelection(0)
         this.spDaysExpPassUnitTime.setSelection(0)
     }
 
@@ -116,8 +143,7 @@ class AuthActivity : AwesomeCompactActivity() {
     fun loadParametersFromService() {
         var controllerListener = object : ControllerListener {
             override fun notifyController(anyObject: Any?, fromClass: Any) {
-                srlPrincipal!!.isRefreshing = false
-                srlPrincipal!!.isEnabled = true
+                progressDialog.dismiss()
                 if (anyObject != null) {
                     var newParameteres: AuthSettings = anyObject as AuthSettings
                     updateAllComponents(newParameteres)
@@ -129,7 +155,7 @@ class AuthActivity : AwesomeCompactActivity() {
             }
         }
         authManager.getAuthParametersWithServiceByTokenId(this, controllerListener)
-
+        progressDialog.show()
     }
 
 
@@ -147,10 +173,10 @@ class AuthActivity : AwesomeCompactActivity() {
 
     fun onClickSaveNewAuthParams(view: View) {
         var newAuthSettingsToSave = AuthSettings()
-        newAuthSettingsToSave.failedLoginMaximumNumber =  this.etNumMaxOfTries.text.toString().toInt()
-        newAuthSettingsToSave.passwordExpirationTimeDays = authManager.convertSessionTimeInMinutes(
-                        this.etDaysExpPassword.text.toString().toInt(), selectedItemOnSessionTime)
-        newAuthSettingsToSave.sessionExpirationTimeMin = authManager.convertSessionTimeInMinutes(
+        newAuthSettingsToSave.failedLoginMaximumNumber = this.etNumMaxOfTries.text.toString().toInt()
+        newAuthSettingsToSave.passwordExpirationTimeDays = authManager.convertPassTimeInSeconds(
+                this.etDaysExpPassword.text.toString().toInt(), selectedItemOnSessionTime)
+        newAuthSettingsToSave.sessionExpirationTimeMin = authManager.convertPassTimeInSeconds(
                 this.etDaysExpSession.text.toString().toInt(), selectedItemOnExpTime)
         newAuthSettingsToSave.minSpecialLettersNumber = this.etMinNumOfSpecialChar.text.toString().toInt()
         newAuthSettingsToSave.minUpperCaseLettersNumber = this.etMinNumOfUpperCase.text.toString().toInt()

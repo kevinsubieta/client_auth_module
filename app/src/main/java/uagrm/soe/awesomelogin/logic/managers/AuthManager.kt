@@ -80,4 +80,10 @@ class AuthManager {
             else -> return value
         }
     }
+
+    fun logOut(context: Context){
+        PreferencesBuilder
+                .build(context,ConstanstFiles.PREFERENCES_USER)
+                .removeKey(ConstanstFiles.USER_KEY_TOKEN)
+    }
 }

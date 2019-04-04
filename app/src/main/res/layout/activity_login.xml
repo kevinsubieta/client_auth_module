@@ -26,6 +26,7 @@
             android:layout_width="match_parent"
             android:layout_height="@dimen/activity_login_edittext_heigth"
             android:hint="@string/textview_tittle_user"
+            android:maxLength="100"
             android:layout_marginTop="@dimen/default_items_margin"
             android:inputType="text"/>
 

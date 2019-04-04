@@ -38,6 +38,7 @@
                 android:layout_height="match_parent"
                 android:layout_marginTop="10dp"
                 android:layout_weight="1.6"
+                android:inputType="number"
                 android:hint="0"
                 android:textAlignment="center" />
 

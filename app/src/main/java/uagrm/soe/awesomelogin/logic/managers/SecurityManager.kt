@@ -55,6 +55,10 @@ class SecurityManager {
         return !responseLogin.failedLogin!!
     }
 
+    fun validateIfUserIsAdmin(responseLogin: ResponseLogin) : Boolean {
+        return responseLogin.isAdmin
+    }
+
     fun saveUserToken(context: Context,responseLogin: ResponseLogin){
         PreferencesBuilder.build(context, ConstanstFiles.PREFERENCES_USER)
                 .putString(ConstanstFiles.USER_KEY_TOKEN, responseLogin.token!!)

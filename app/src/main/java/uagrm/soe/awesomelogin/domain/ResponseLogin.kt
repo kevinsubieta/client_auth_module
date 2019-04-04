@@ -5,7 +5,7 @@ import java.io.Serializable
 
 class ResponseLogin: Serializable{
 
-    @SerializedName("change_password")
+    @SerializedName("must_change_password")
     var mustChangePassword: Boolean = true
 
     @SerializedName("failed_login")

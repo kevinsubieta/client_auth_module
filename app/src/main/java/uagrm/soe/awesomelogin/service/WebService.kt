@@ -22,9 +22,9 @@ class WebService {
     }
 
     companion object {
-        val CONNECT_TIME_OUT = 90
-        val CONNECT_WRITE_OUT = 90
-        val TIME_OUT = 90
+        val CONNECT_TIME_OUT = 30
+        val CONNECT_WRITE_OUT = 30
+        val TIME_OUT = 30
 
         val USER_AUTH = "Vk7iBxhuaYZSCncLIbZazA==Cz8hZS/sv70ZgG7G01DhWQ=="
         val TOKEN_AUTH = "2a10YEm0utdWochklUhh8zZ78.SghQhV48VDem1voeO9yDihEHI2vA1US"

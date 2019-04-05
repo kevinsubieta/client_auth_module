@@ -92,6 +92,7 @@
         android:layout_height="@dimen/activity_login_button_heigth"
         style="@style/style_button_login_orange"
         android:layout_marginTop="@dimen/default_items_margin"
+        android:visibility="gone"
         android:layout_below="@+id/rlButtonLogin">
     
     <Button

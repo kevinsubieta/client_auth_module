@@ -100,7 +100,7 @@ class LoginActivity : AwesomeCompactActivity(), ControllerListener {
                     } else {
                         if (securityManager.validateIfExistAnyError(responseLogin)) {
                             securityManager.saveUserToken(this, responseLogin)
-                            var intent = Intent()
+                            var intent : Intent
                             if (securityManager.validateIfUserIsAdmin(responseLogin)){
                                 intent = Intent(this, AuthActivity::class.java)
                                 finish()

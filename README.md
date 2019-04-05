@@ -56,37 +56,22 @@ Registrar los datos siguientes datos del Usuario:
 	Cambio obligatorio en el primer inicio de session 
 ```
 
-* ### 08.- Simultaneous start
-```
-	Iniciar Session en dos dispositivos al mismo tiempo
-```
-
-* ### 09.- Devices where you have logged in
-```
-	Mostrar la lista de dispositivos que han iniciado session
-```
-
-* ### 10.- Password encryption
+* ### 08.- Password encryption
 ```
 	Encriptar la contraseña
 ```
 
-* ### 11.- Authentication in two steps
-```
-	Enviar un codigo en un SMS al telefono y soliciar el codigo para iniciar sesion
-```
-
-* ### 12.- Password Change
+* ### 09.- Password Change
 ```
 	Cambiar la contraseña
 ```
 
-* ### 13.- Forget password
+* ### 10.- Reset password
 ```
-	Enviar la solicitud de cambio al correo electronico del Usuario
+	Enviar la solicitud cambio de contraseña del Usuario al Administradord
 ```
 
-* ### 14.- User status
+* ### 11.- User status
 ```
 	Validar si esta habilitado un usuario para entrar al sistema
 ```
